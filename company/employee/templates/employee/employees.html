@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+
+<div class="row mt-5">
+    <div class="col-12 text-center">
+        <h4>Список сотрудников компании</h4>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-8 m-auto">
+            {% for i in empl %}
+            <ul class=" list-group-item list-group-item">
+                <li class="m-auto list-unstyled">{{i.id}} <img
+                        src="{{ url_for('static', filename='profile_pics/' + 'employees_pic/' + i.email + '/'  + i.image_file) }}"
+                        alt="avatar" class="mr-3 mt-3 rounded-circle" style="width:40px;"> {{ i.first_name }} {{
+                    i.last_name }} - {{ i.position }}
+                </li>
+            </ul>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

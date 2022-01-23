@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12 text-center mt-2"><h3>Редактировать сотрудника ID {{entry_edit.id}}</h3></div>
+</div>
+
+<div class="d-flex justify-content-start col-3 m-2">
+    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a href="{{ url_for('employee.account', email_str=entry_edit.email) }}">
+            <button class="nav-link" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home"
+                    type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Общее
+            </button>
+        </a>
+        <a href="{{ url_for('employee.action_user', email_str=entry_edit.email) }}">
+            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile"
+                    type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Активность
+            </button>
+        </a>
+        <a href="{{ url_for('employee.edit_user', email_str=entry_edit.email) }}">
+            <button class="nav-link active" id="v-pills-messages-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages"
+                    aria-selected="false">Редактировать
+            </button>
+        </a>
+        <a href="{{ url_for('employee.settings_user', email_str=entry_edit.email) }}">
+            <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings"
+                    type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Настройки
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+
+{% endblock content %}
